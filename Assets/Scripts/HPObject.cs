@@ -8,7 +8,7 @@ public abstract class HPObject : MonoBehaviour
 
     [SerializeField] float damage_delay;
     [SerializeField] int max_hp;
-    int hp;
+    protected int hp;
     bool can_be_damage = true;
 
     SpriteRenderer _renderer;
@@ -32,7 +32,8 @@ public abstract class HPObject : MonoBehaviour
     {
         if (can_be_damage)
         {
-            hp--;
+            hp -= 1;
+            WhenDamaged();
             StartCoroutine(DamageTimer());
         }
         if (hp <= 0)
@@ -42,6 +43,11 @@ public abstract class HPObject : MonoBehaviour
     }
 
     public abstract void Death();
+
+    public virtual void WhenDamaged()
+    {
+
+    }
 
     private void OnDestroy()
     {

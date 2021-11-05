@@ -2,10 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using EasyJoystick;
+using UnityEngine.UI;
 
 public class Player : HPObject
 {
+    [SerializeField] List<Sprite> hp_bar_images;
+
     [SerializeField] private GameObject DeathPanel;
+    [SerializeField] private Image HP_bar;
     [SerializeField] private Joystick joystick;
     [SerializeField] private float speed;
     public float upgrade = 1;
@@ -16,6 +20,11 @@ public class Player : HPObject
     {
         DeathPanel.SetActive(true);
         Destroy(gameObject);
+    }
+
+    public override void WhenDamaged()
+    {
+        HP_bar.sprite = hp_bar_images[base.hp];
     }
 
     void Start()
