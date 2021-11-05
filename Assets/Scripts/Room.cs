@@ -19,8 +19,17 @@ public class Room : MonoBehaviour
 
     [SerializeField] protected SpawnArea _spawn_area;
 
+    [SerializeField] protected Transform temp_objects;
+    public Transform get_temp_parent { get { return temp_objects; } }
+
     [Header("Doors")]
     [SerializeField] protected List<Door> active_doors = new List<Door>();
+
+    [Header("Mobs")]
+    [SerializeField] protected List<GameObject> prefab_mobs;
+    [SerializeField] protected int mob_nums;
+    //ѕока число не равно нулю - двери не открываютс€.
+    int reasons_for_closed;
 
     void Start()
     {
@@ -28,7 +37,20 @@ public class Room : MonoBehaviour
 
     void Update()
     {
+        if (reasons_for_closed == 0)
+        {
+            OpenAllDoors();
+        }
+    }
 
+    void SpawnMob()
+    {
+        reasons_for_closed++;
+        var rand_pref_mob = prefab_mobs[Random.Range(0, prefab_mobs.Count)];
+        var spawn_point = _spawn_area.get_point();
+        var mob = Instantiate(rand_pref_mob);
+        mob.transform.position = spawn_point;
+        mob.transform.parent = get_temp_parent;
     }
 
     public void OpenAllDoors()
@@ -73,13 +95,21 @@ public class Room : MonoBehaviour
             temp.Add(active_doors[pos]);
             active_doors.RemoveAt(pos);
         }
-        
+
         foreach (var _door in active_doors)
         {
             _door.DisableDoor();
         }
         active_doors.Clear();
         active_doors.AddRange(temp);
+
+        if (dir != FromDoorDirection.Spawn)
+        {
+            for (int i = 0; i < mob_nums; i++)
+            {
+                SpawnMob();
+            }
+        }
 
         return spawn_point;
     }

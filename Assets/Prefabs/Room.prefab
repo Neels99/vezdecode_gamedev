@@ -79,6 +79,7 @@ Transform:
   - {fileID: 8747132160468641221}
   - {fileID: 8747132161476558923}
   - {fileID: 470739916433858299}
+  - {fileID: 1709113307251996704}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -109,11 +110,15 @@ MonoBehaviour:
   NormalRoomDoor: {fileID: 7831688794362381626, guid: 55c6362e9c9deeb4c97f44382b72cbc2, type: 3}
   FromRoomDoor: {fileID: 2733133848713729143, guid: 4b84b94032c4b2942816f2cf08e82ec3, type: 3}
   _spawn_area: {fileID: 2368639207243315646}
+  temp_objects: {fileID: 1709113307251996704}
   active_doors:
   - {fileID: 1744787873488705058}
   - {fileID: 621270641539904011}
   - {fileID: 621270640119309629}
   - {fileID: 621270641125130419}
+  prefab_mobs:
+  - {fileID: 3025331999355630235, guid: 979b6fa62e6545f449c772d3ee11fe2b, type: 3}
+  mob_nums: 2
 --- !u!1 &4997369307181248184
 GameObject:
   m_ObjectHideFlags: 0
@@ -2351,6 +2356,36 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
+--- !u!1 &7105389646064877346
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1709113307251996704}
+  m_Layer: 0
+  m_Name: temp_objects
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1709113307251996704
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7105389646064877346}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4997369306494720958}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &4997369305980720482
 PrefabInstance:
   m_ObjectHideFlags: 0

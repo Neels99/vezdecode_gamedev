@@ -46,12 +46,16 @@ public class RoomManager : MonoBehaviour
         Destroy(_instance.room.gameObject);
         var pos = _instance.CreateRoom(from);
         _instance.SetPlayerPos(pos);
-        OpenRoom();
     }
 
     static public void OpenRoom()
     {
         _instance.room.OpenAllDoors();
+    }
+
+    static public Transform GetTempParent()
+    {
+        return _instance.room.get_temp_parent;
     }
     void Start()
     {
