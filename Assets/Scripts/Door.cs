@@ -18,12 +18,15 @@ public class Door : MonoBehaviour
 {
     LockType _lock = LockType.close;
     ToRoomType to_room_type;
-    [SerializeField] SpriteRenderer _render;
 
-    public void SetDoor(ToRoomType _type, Sprite _sprite)
+    [SerializeField] SpriteRenderer _render;
+    [SerializeField] Transform spawn_pont;
+
+    public void SetDoor(ToRoomType _type, Sprite _sprite, LockType _lock_type = LockType.close)
     {
         to_room_type = _type;
         _render.sprite = _sprite;
+        _lock = _lock_type;
     }
 
     public void Open()
