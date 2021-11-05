@@ -15,6 +15,15 @@ public class Drone : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Mob"))
+        {
+            collision.GetComponent<HPObject>().GetDamage();
+        }
+        Debug.Log(collision.gameObject.name);
+    }
+
     // Update is called once per frame
     void Update()
     {

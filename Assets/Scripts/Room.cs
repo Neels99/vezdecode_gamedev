@@ -113,4 +113,9 @@ public class Room : MonoBehaviour
 
         return spawn_point;
     }
+
+    public void MobDeath()
+    {
+        reasons_for_closed--;
+    }
 }

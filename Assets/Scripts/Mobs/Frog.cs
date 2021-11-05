@@ -2,10 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Frog : MonoBehaviour
+public class Frog : HPObject
 {
     [SerializeField] GameObject _pref_bullet;
     [SerializeField] Transform _bullet_spawn;
+
+    public override void Death()
+    {
+        RoomManager.DeathOfMob();
+        Destroy(gameObject);
+    }
+
     // Start is called before the first frame update
 
     void Fire()
@@ -29,6 +36,7 @@ public class Frog : MonoBehaviour
     }
     void Start()
     {
+        base.Init();
         StartCoroutine(FireTimer());   
     }
 

@@ -57,6 +57,11 @@ public class RoomManager : MonoBehaviour
     {
         return _instance.room.get_temp_parent;
     }
+
+    static public void DeathOfMob()
+    {
+        _instance.room.MobDeath();
+    }
     void Start()
     {
         

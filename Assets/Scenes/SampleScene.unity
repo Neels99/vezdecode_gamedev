@@ -361,6 +361,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 623bde10e7bf9b241af3b85096abf9cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage_delay: 1
   max_hp: 4
   joystick: {fileID: 2020301204}
   speed: 5
