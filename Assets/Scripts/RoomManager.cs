@@ -7,6 +7,9 @@ public class RoomManager : MonoBehaviour
     static private RoomManager _instance;
     static public RoomManager instance { get { return _instance; } }
 
+    float difficulty_mul = 1f; //+0.2 for level
+    public static float get_difficulty { get { return _instance.difficulty_mul; } }
+
     [Header("Prefabs")]
     [SerializeField] GameObject prefab_room;
 
@@ -46,6 +49,7 @@ public class RoomManager : MonoBehaviour
         Destroy(_instance.room.gameObject);
         var pos = _instance.CreateRoom(from);
         _instance.SetPlayerPos(pos);
+        _instance.difficulty_mul += 0.2f;
     }
 
     static public void OpenRoom()

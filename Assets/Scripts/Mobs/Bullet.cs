@@ -8,7 +8,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] float speed;
     void Start()
     {
-        GetComponent<Rigidbody2D>().velocity = -transform.up * speed;
+        GetComponent<Rigidbody2D>().velocity = -transform.up * speed * RoomManager.get_difficulty;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

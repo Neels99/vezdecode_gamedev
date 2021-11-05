@@ -28,6 +28,7 @@ public class Room : MonoBehaviour
     [Header("Mobs")]
     [SerializeField] protected List<GameObject> prefab_mobs;
     [SerializeField] protected int mob_nums;
+    [SerializeField] protected List<GameObject> invisible_shooters = new List<GameObject>();
     //ѕока число не равно нулю - двери не открываютс€.
     int _reason_for_closed;
     int reasons_for_closed
@@ -39,6 +40,10 @@ public class Room : MonoBehaviour
             if (_reason_for_closed <= 0)
             {
                 OpenAllDoors();
+                foreach (var invis in invisible_shooters)
+                {
+                    invis.SetActive(false);
+                }
                 PlayerManager.EnableUpgrade();
             }
         }
@@ -98,6 +103,20 @@ public class Room : MonoBehaviour
             active_doors[from_door_pos].SetDoor(ToRoomType.from, FromRoomDoor);
             spawn_point = active_doors[from_door_pos].get_spawn;
             active_doors.RemoveAt(from_door_pos);
+
+            foreach (var invis_shoot in invisible_shooters)
+            {
+                if (Random.Range(0, 3) != 1)
+                {
+                    invis_shoot.SetActive(false);
+                }
+            }
+        } else
+        {
+            foreach (var invis_shoot in invisible_shooters)
+            {
+                invis_shoot.SetActive(false);
+            }
         }
 
         List<Door> temp = new List<Door>();
