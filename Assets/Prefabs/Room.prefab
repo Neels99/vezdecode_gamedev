@@ -1,5 +1,48 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4557973639408711607
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 470739916433858299}
+  - component: {fileID: 2368639207243315646}
+  m_Layer: 0
+  m_Name: spawn_area
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &470739916433858299
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4557973639408711607}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 13.976244, y: 6.087656, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4997369306494720958}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2368639207243315646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4557973639408711607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db9150c616e652c498579babc54ed246, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4997369306494720960
 GameObject:
   m_ObjectHideFlags: 0
@@ -35,6 +78,7 @@ Transform:
   - {fileID: 8747132161671131891}
   - {fileID: 8747132160468641221}
   - {fileID: 8747132161476558923}
+  - {fileID: 470739916433858299}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -64,6 +108,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NormalRoomDoor: {fileID: 7831688794362381626, guid: 55c6362e9c9deeb4c97f44382b72cbc2, type: 3}
   FromRoomDoor: {fileID: 2733133848713729143, guid: 4b84b94032c4b2942816f2cf08e82ec3, type: 3}
+  _spawn_area: {fileID: 2368639207243315646}
   active_doors:
   - {fileID: 1744787873488705058}
   - {fileID: 621270641539904011}

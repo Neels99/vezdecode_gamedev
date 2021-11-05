@@ -17,12 +17,13 @@ public class Room : MonoBehaviour
     [SerializeField] protected Sprite NormalRoomDoor;
     [SerializeField] protected Sprite FromRoomDoor;
 
+    [SerializeField] protected SpawnArea _spawn_area;
+
     [Header("Doors")]
     [SerializeField] protected List<Door> active_doors = new List<Door>();
 
     void Start()
     {
-        
     }
 
     void Update()
