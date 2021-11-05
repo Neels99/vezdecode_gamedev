@@ -29,7 +29,20 @@ public class Room : MonoBehaviour
     [SerializeField] protected List<GameObject> prefab_mobs;
     [SerializeField] protected int mob_nums;
     //ѕока число не равно нулю - двери не открываютс€.
-    int reasons_for_closed;
+    int _reason_for_closed;
+    int reasons_for_closed
+    {
+        get { return _reason_for_closed; }
+        set
+        {
+            _reason_for_closed = value;
+            if (_reason_for_closed <= 0)
+            {
+                OpenAllDoors();
+                PlayerManager.EnableUpgrade();
+            }
+        }
+    }
 
     void Start()
     {

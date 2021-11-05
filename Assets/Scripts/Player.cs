@@ -8,6 +8,7 @@ public class Player : HPObject
     [SerializeField] private GameObject DeathPanel;
     [SerializeField] private Joystick joystick;
     [SerializeField] private float speed;
+    public float upgrade = 1;
 
     Rigidbody2D _rigidbody;
 
@@ -31,6 +32,6 @@ public class Player : HPObject
         float xMovement = joystick.Horizontal();
         float yMovement = joystick.Vertical();
 
-        _rigidbody.velocity = new Vector3(xMovement, yMovement, 0) * speed;
+        _rigidbody.velocity = new Vector3(xMovement, yMovement, 0) * speed * upgrade;
     }
 }
