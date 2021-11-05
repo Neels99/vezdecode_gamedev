@@ -21,7 +21,6 @@ public class Drone : MonoBehaviour
         {
             collision.GetComponent<HPObject>().GetDamage();
         }
-        Debug.Log(collision.gameObject.name);
     }
 
     // Update is called once per frame

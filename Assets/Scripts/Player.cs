@@ -5,6 +5,7 @@ using EasyJoystick;
 
 public class Player : HPObject
 {
+    [SerializeField] private GameObject DeathPanel;
     [SerializeField] private Joystick joystick;
     [SerializeField] private float speed;
 
@@ -12,8 +13,8 @@ public class Player : HPObject
 
     public override void Death()
     {
-        //TODO:
-        Debug.Log("Player death!");
+        DeathPanel.SetActive(true);
+        Destroy(gameObject);
     }
 
     void Start()
