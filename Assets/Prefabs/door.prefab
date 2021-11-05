@@ -124,6 +124,7 @@ GameObject:
   - component: {fileID: 6386174209987878020}
   - component: {fileID: 5603897075581005919}
   - component: {fileID: 6877154329441613763}
+  - component: {fileID: 2608442957645281947}
   m_Layer: 0
   m_Name: door
   m_TagString: Untagged
@@ -210,6 +211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae18f8b3812064645b1d4dda02a57798, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  door_position: 0
   _render: {fileID: 6386174209987878020}
   spawn_pont: {fileID: 5680173879541409086}
 --- !u!61 &6877154329441613763
@@ -238,3 +240,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.4, y: 1.4}
   m_EdgeRadius: 0
+--- !u!95 &2608442957645281947
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8901124764344943233}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c0ff0daed35ba5240b762fe6f650c11e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

@@ -27,6 +27,10 @@ public class Door : MonoBehaviour
     public void SetDoor(ToRoomType _type, Sprite _sprite, LockType _lock_type = LockType.close)
     {
         to_room_type = _type;
+        if (to_room_type == ToRoomType.from)
+        {
+            Destroy(GetComponent<Animator>());
+        }
         _render.sprite = _sprite;
         _lock = _lock_type;
     }
@@ -34,6 +38,7 @@ public class Door : MonoBehaviour
     public void Open()
     {
         _lock = LockType.open;
+        GetComponent<Animator>().SetTrigger("open");
     }
 
     public void DisableDoor()
