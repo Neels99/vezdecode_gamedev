@@ -30,12 +30,38 @@ public class Room : MonoBehaviour
 
     }
 
-    public void Init(FromDoorDirection dir)
+    public void OpenAllDoors()
     {
+        foreach (var _door in active_doors)
+        {
+            _door.Open();
+        }
+    }
+
+    public Vector2 Init(FromDoorDirection dir)
+    {
+        Vector2 spawn_point = Vector2.zero;
         if (dir != FromDoorDirection.Spawn)
         {
-            active_doors[(int)dir].SetDoor(ToRoomType.from, FromRoomDoor);
-            active_doors.RemoveAt((int)dir);
+            int from_door_pos = 0;
+            switch (dir)
+            {
+                case FromDoorDirection.up:
+                    from_door_pos = (int)FromDoorDirection.down;
+                    break;
+                case FromDoorDirection.left:
+                    from_door_pos = (int)FromDoorDirection.right;
+                    break;
+                case FromDoorDirection.down:
+                    from_door_pos = (int)FromDoorDirection.up;
+                    break;
+                case FromDoorDirection.right:
+                    from_door_pos = (int)FromDoorDirection.left;
+                    break;
+            }
+            active_doors[from_door_pos].SetDoor(ToRoomType.from, FromRoomDoor);
+            spawn_point = active_doors[from_door_pos].get_spawn;
+            active_doors.RemoveAt(from_door_pos);
         }
 
         List<Door> temp = new List<Door>();
@@ -53,5 +79,7 @@ public class Room : MonoBehaviour
         }
         active_doors.Clear();
         active_doors.AddRange(temp);
+
+        return spawn_point;
     }
 }

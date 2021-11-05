@@ -18,9 +18,11 @@ public class Door : MonoBehaviour
 {
     LockType _lock = LockType.close;
     ToRoomType to_room_type;
+    [SerializeField] FromDoorDirection door_position;
 
     [SerializeField] SpriteRenderer _render;
     [SerializeField] Transform spawn_pont;
+    public Vector2 get_spawn { get { return spawn_pont.position; } }
 
     public void SetDoor(ToRoomType _type, Sprite _sprite, LockType _lock_type = LockType.close)
     {
@@ -39,13 +41,19 @@ public class Door : MonoBehaviour
         gameObject.SetActive(false);
     }
 
+    public void GoToDoor()
+    {
+        RoomManager.GoToRoom(door_position);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            if (_lock == LockType.open)
+            if (_lock == LockType.open && to_room_type != ToRoomType.from)
             {
                 Debug.Log("Go Next");
+                GoToDoor();
             }
         }
     }

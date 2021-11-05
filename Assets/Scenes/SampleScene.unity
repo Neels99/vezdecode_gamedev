@@ -437,6 +437,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97a54882646407f42b330023002b41e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  prefab_room: {fileID: 4997369306494720960, guid: 9924cfd861246d241ac57bacdd606f65, type: 3}
+  _player: {fileID: 191741389}
+  _drone: {fileID: 712678696}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1391,6 +1394,10 @@ PrefabInstance:
     - target: {fileID: 4997369306494720960, guid: 9924cfd861246d241ac57bacdd606f65, type: 3}
       propertyPath: m_Name
       value: SpawnRoom
+      objectReference: {fileID: 0}
+    - target: {fileID: 4997369306494720960, guid: 9924cfd861246d241ac57bacdd606f65, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4997369306494720957, guid: 9924cfd861246d241ac57bacdd606f65, type: 3}
